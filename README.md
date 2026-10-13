@@ -1,3 +1,4 @@
+<img width="1536" height="1024" alt="interactive guide agent " src="https://github.com/user-attachments/assets/6bc40514-0d13-4b3c-911e-9a0830180faf" />
 # Uluru Cultural Centre Multi-Agent System
 
 A starter project exploring how a multi-agent visitor assistant could help
