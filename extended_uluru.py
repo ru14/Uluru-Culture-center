@@ -12,22 +12,26 @@ DEFAULT_STYLE = ("#C0C0C0", "p", 2300)
 
 def create_diagram(title, nodes, edges, pos, node_labels=None,
                    node_types=None, edge_labels=None):
+    """Render the supplied multi-agent system as a PNG diagram."""
     graph = nx.DiGraph()
     graph.add_nodes_from(nodes)
     graph.add_edges_from(edges)
 
-    node_labels = node_labels or {n: n.replace(" ", "\n") for n in nodes}
+    node_labels = {
+        node: (node_labels or {}).get(node, node.replace(" ", "\n"))
+        for node in graph
+    }
     node_types = node_types or {n: "agent" for n in nodes}
     edge_labels = edge_labels or {}
 
-    missing = [n for n in nodes if n not in pos]
+    missing = [node for node in graph if node not in pos]
     if missing:
         raise ValueError(f"Missing positions for nodes: {missing}")
 
     plt.figure(figsize=(16, 8))
     plt.title(title, fontsize=16, fontweight="bold", pad=20)
 
-    for node in nodes:
+    for node in graph:
         color, shape, size = NODE_STYLES.get(node_types.get(node), DEFAULT_STYLE)
         nx.draw_networkx_nodes(graph, pos, nodelist=[node], node_color=[color],
                                node_shape=shape, node_size=size,
@@ -38,7 +42,8 @@ def create_diagram(title, nodes, edges, pos, node_labels=None,
                            connectionstyle="arc3,rad=0.15",
                            node_size=2800)
 
-    for node, (x, y) in pos.items():
+    for node in graph:
+        x, y = pos[node]
         plt.text(x, y, node_labels[node], fontsize=9, ha="center", va="center",
                  fontweight="bold",
                  bbox=dict(facecolor="white", alpha=0.8, edgecolor="lightgray",
