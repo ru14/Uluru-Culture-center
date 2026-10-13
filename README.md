@@ -7,6 +7,25 @@ preferred language, and find their way around the visitor centre. The current
 Python entry point illustrates the system architecture as a diagram; it is not
 a functioning visitor assistant.
 
+## Project goal
+
+This repository demonstrates the intended shape of a culturally respectful,
+multi-agent visitor experience for the Uluru Cultural Centre. It is designed
+as a conceptual prototype to show how language routing, knowledge lookup,
+and response review could work together in a future assistant.
+
+## Ethics and cultural guidance
+
+This project is only a starter and must not be treated as an authoritative
+source on Aboriginal culture, language, or visitor guidance. Any future use of
+community knowledge, translations, or cultural content should be developed in
+consultation with the relevant Aboriginal communities, with permission,
+accurate attribution, and careful review.
+
+The checker and verifier in this starter are diagram components only. They do
+not assess real content, provide translation, or replace guidance from
+Aboriginal communities.
+
 ## Project overview
 
 The conceptual flow starts with visitor input, identifies a language, and
@@ -15,10 +34,8 @@ knowledge-base lookup and cultural sensitivity checker support the response,
 which is then reviewed by a translation verification agent before returning
 to the visitor.
 
-The checker and verifier in this starter are diagram components only. They do
-not assess real content, provide translation, or replace guidance from
-Aboriginal communities. Any future knowledge or language resources should be
-used with the appropriate community permission and attribution.
+Any future knowledge or language resources should be used with the appropriate
+community permission and attribution.
 
 ## Features
 
